@@ -7,11 +7,11 @@ permissions:
   contents: read
 jobs:
   notebook:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: pip
@@ -22,7 +22,7 @@ jobs:
       - name: Execute notebook and verify results
         run: python validate_notebook.py
       - name: Save executed notebook and chart
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: executed-netflix-analysis
           path: |
